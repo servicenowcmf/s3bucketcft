@@ -1,0 +1,23 @@
+{
+	"AWSTemplateFormatVersion": "2010-09-09",
+	"Description": "Simple S3 bucket",
+	
+    "Parameters" : {
+        "S3Name": {
+        "Description" : "Enter the name of your S3 Bucket (lowercase only)",
+        "Type": "String",
+        "AllowedPattern" : "[a-z0-9]*",
+        "MinLength": "3",
+        "MaxLength": "30"
+        }
+    },
+    
+    "Resources" : {
+		"Bucket": {
+		"Type" : "AWS::S3::Bucket",
+		    "Properties": {
+                "BucketName":  {"Ref" : "S3Name"}
+			}
+		}
+	}
+}
